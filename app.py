@@ -39,7 +39,7 @@ def update_item():
     request_data=request.get_json()
     for item in items:
         if  item['name']==request_data['name']:
-            item['price']==request_data['price']
+            item['price']=request_data['price']
             return {"massage":"item updated successfully"}
     return {"massage":"doesn't update"}
 
@@ -48,7 +48,7 @@ def update_item():
 def delete_item(name):
     for item in items :
         if name==item['name']:
-            del item
+            items.remove(item)
             return {"massage":"item is deleted successfully"}
     return {"item doen't exit "}
 
